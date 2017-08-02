@@ -12,23 +12,18 @@
 	<h:outputStylesheet library="css" name="style3.css"  />
 	
 </h:head>
-    
-<h:body styleClass="centered">	
-	<div>
-		<div id="content">							
-			<h:form styleClass="form-container" >
+	<h:body styleClass="centered">						
+			<h:form styleClass="b" >
 				<div class="menu">
-  					<ul>
-	  					<h:link class="a" action="tablaClientes"><li>CLIENTES</li></h:link>
-	  					<h:link styleClass="a" action="pedidos"><li>PEDIDOS</li></h:link>	
-					    <h:link styleClass="a" action="inventario"><li>INVENTARIO</li></h:link>		    
-					    <h:link styleClass="a" action="proveedores"><li>PROVEEDORES</li></h:link>
-					    <h:link styleClass="a" action="añadirRol"><li>AÑADIR ROL</li></h:link>
-					    <h:link styleClass="a" action="registrarAdmin"><li>AÑADIR ADMINISTRADOR</li></h:link>		
+	  				<ul>
+		  				<h:link styleClass="a" outcome="tablaClientes"><li>CLIENTES</li></h:link>
+		  				<h:link styleClass="a" outcome="pedidos"><li>PEDIDOS</li></h:link>	
+						<h:link styleClass="a" outcome="inventario"><li>INVENTARIO</li></h:link>		    
+						<h:link styleClass="a" outcome="proveedores"><li>PROVEEDORES</li></h:link>
+						<h:link styleClass="a" outcome="anadirRol"><li>AÑADIR ROL</li></h:link>
+						<h:link styleClass="a" outcome="registrarAdmin"><li>AÑADIR ADMINISTRADOR</li></h:link>		
 					</ul>
 				</div>
-			</h:form>
-		</div>	
-	</div>
-</h:body>
+			</h:form>	
+	</h:body>
 </html>

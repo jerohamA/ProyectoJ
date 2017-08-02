@@ -5,7 +5,6 @@ package proyecto;
 import javax.faces.bean.ManagedBean;
 @ManagedBean
 public class Usuario {
-
 	private int id;
 	private String username;
 	private String password;

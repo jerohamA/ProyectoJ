@@ -5,28 +5,20 @@
     xmlns:a="http://java.sun.com/jsf/facelets"
     xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-  <title>ORDEN</title>
-  <h:outputStylesheet library="css" name="style2.css"  />
+  <title>CLIENTE</title>
+  <h:outputStylesheet library="css" name="style3.css"  />
 </h:head>
 
 <h:body class="centered">
 	
-	<br/><br/>
-	<div class="container">
-	
-		<H2>Bienvenido #{login.usr}</H2>
-	
-		<h:form styleClass="form-container">
-					
-				<h:commandButton value="Realizar pedido"
-						styleClass="add-button"
-						action=" "/>
-						
-				<h:commandButton value="Ver pedido"
-						styleClass="add-button"
-						action=" "/>
-		</h:form>
-	</div>
+		<h:form styleClass="b" >
+			<div class="menu">
+  				<ul>
+	  				<h:link styleClass="a" action="realizarOrden"><li>ORDENAR</li></h:link>
+	  				<h:link styleClass="a" action="pedidos"><li>VER ORDEN</li></h:link>			
+				</ul>
+			</div>
+		</h:form>	
 </h:body>
 
 </html>
