@@ -1,0 +1,196 @@
+body{
+  	font-family: 'Noto Sans', sans-serif;
+  	background-image:url(http://www.proecuador.gob.ec/sectores/cafe/img/CAFE11.jpg);
+	margin:0;
+	width:100%;
+	height:100vh;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+header{
+	width:100%; 
+	background:#ffffff; 
+	height:60px; 
+	line-height:60px;
+	border-bottom:1px solid #dddddd;
+}
+.hamburger{
+  background:none;
+  position:absolute;
+  top:0;
+  right:0;
+  line-height:45px;
+  padding:5px 15px 0px 15px;
+  color:#999;
+  border:0;
+  font-size:1.4em;
+  font-weight:bold;
+  cursor:pointer;
+  outline:none;
+  z-index:10000000000000;
+}
+.cross{
+  background:none;
+  position:absolute;
+  top:0px;
+  right:0;
+  padding:7px 15px 0px 15px;
+  color:#999;
+  border:0;
+  font-size:3em;
+  line-height:65px;
+  font-weight:bold;
+  cursor:pointer;
+  outline:none;
+  z-index:10000000000000;
+}
+h2{
+	margin:0;	
+	text-align:center;
+	margin-bottom:5px;
+}
+
+.demo-table {   
+	border-collapse:collapse;
+	border:1px;
+	width:100%;
+}
+
+.table-button {
+	border: 1px solid #666; 
+	border-radius: 5px; 	
+	font-size: 12px;
+	
+	width: 70px; 
+	padding: 5px 10px;	
+	margin-bottom: 2px;
+	background: #cccccc;
+}
+
+.form-container label{
+	width:25px;
+	
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  display: inline-block;
+}
+ 
+ 
+.demo-table-header {
+	border-bottom:1px solid gray;
+	background:none repeat scroll 0 0 ;
+	padding:10px;
+}
+
+.form-container .login-text {
+    width: 130px;
+    float: right;
+}
+ 
+.demo-table-odd-row {
+	border-top:1px solid gray;
+	background:none repeat scroll 0 0 #FFFFFFF;
+	text-align:center;
+}
+ 
+.demo-table-even-row {
+	border-top:1px solid gray;
+	background:none repeat scroll 0 0 #D0D0D0;
+	text-align:center;
+}
+
+
+
+#header-table {
+	width: 100%; 
+	background: #b30f0f; 
+	margin-top: 0px; 
+	margin-bottom: 15px;
+	padding:15px 0px 15px 0px; 
+	text-align:center
+}
+
+.container {
+	padding:20px 25px;
+	background: rgba(250,250,250, 0.85);
+	height:auto;
+	overflow:auto;
+	
+}
+
+.container-table {
+	padding:20px 25px;
+	background: rgba(250,250,250, 0.85);
+}
+
+
+.add-student-button {
+	border: 1px solid #666; 
+	border-radius: 5px; 	
+	font-size: 12px;
+	font-weight: bold;
+	width: 120px; 
+	padding: 5px 10px; 
+	margin-left:25%;
+	margin-bottom: 2px;
+	background: #cccccc;
+}
+
+.add-button {
+	border: 1px solid #666; 
+	border-radius: 5px; 	
+	font-size: 12px;
+	font-weight: bold;
+	width: 150px; 
+	padding: 5px 10px; 
+	margin-left:25%;
+	margin-bottom: 4px;
+	background: #cccccc;
+}
+.menu{
+	margin: 80px;
+	padding: 0px;
+	z-index:1000000; 
+	font-weight:bold; 
+	font-size:0.8em; 
+	width:100%;   
+	position:absolute; 
+	text-align:center; 
+	font-size:12px;
+	position: fixed;
+  	top: 50%;
+  	left: 50%;
+  	/* bring your own prefixes */
+  	transform: translate(-50%, -50%);
+  	display: inline-block;	
+}
+.menu ul {margin: 0px; padding: 0; list-style-type: none; list-style-image: none; text-decoration:none;}
+.menu li {display: block; padding:15px 0 15px 0;text-decoration:none;}
+.menu li:hover{display: block; padding:15px 0 15px 0; color: red ;text-decoration:none;}
+.menu ul li link { text-decoration:none;  margin: 0px; color:#666;}
+.menu ul li link:hover {  color: #666; text-decoration:none;}
+.menu link{text-decoration:none; color:#666;}
+.menu link:hover{text-decoration:none; color:#666;}
+
+.glyphicon-home{
+  color:white; 
+  font-size:1.5em; 
+  margin-top:5px; 
+  margin:0 auto;
+}
+header{display:inline-block; font-size:12px;}
+span{padding-left:20px;}
+.a{
+	color:#000000; 
+	text-decoration:none;
+	
