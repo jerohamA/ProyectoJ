@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<title>Modificar Usuario</title>
+	
+	<h:outputStylesheet library="css" name="style2.css"  />
+	
+	
+</h:head>
+
+<h:body class="centered">
+
+	<div class="container">
+	
+		
+		<h2>Competicion</h2>
+	
+		<h3>Modificar Usuarios</h3>
+
+		<h:messages globalOnly="true" />
+
+		<h:form class="form-container">
+			
+			
+			<h:outputLabel>Nombres:</h:outputLabel> <h:inputText value="#{usuario.firstName}" id="firstName" styleClass="login-text" /> <h:message for="firstName" />
+			<br/><br/>
+			<h:outputLabel>Apellidos:</h:outputLabel> <h:inputText value="#{usuario.lastName}" id="lastName" styleClass="login-text"  /> <h:message for="lastName" />
+			<br/><br/>
+			<h:outputLabel>User Name:</h:outputLabel> <h:inputText value="#{usuario.username}" id="username" 
+								required="true"	requiredMessage="El user name es obligatorio." styleClass="login-text" /> 	<h:message for="username" />
+	        <br/><br/>						
+			<h:outputLabel>Password:</h:outputLabel> <h:inputText value="#{usuario.password}" id="password" 
+								required="true"	requiredMessage="La contrasena es obligatorio." styleClass="login-text" /> 	<h:message for="password" />
+	         <br/><br/>					
+			 <h:inputHidden value="#{usuario.id}"/>
+			 <h:inputHidden value="#{usuario.tipo}"/>
+			 <h:commandButton value="Aceptar" styleClass="add-student-button" action="#{torneoController.updateUsuario(usuario)}"/>
+			<br/><br/>
+			
+		</h:form>
+		
+		<p><h:outputLink value="administrador.xhtml">Regresar al Listado</h:outputLink></p>
+
+	</div>	
+</h:body>
+</html>

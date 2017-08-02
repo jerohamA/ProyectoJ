@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+<h:head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<title>ADMINISTRADOR</title>
+	
+	<h:outputStylesheet library="css" name="style2.css"  />
+	
+</h:head>
+
+<h:body styleClass="centered">
+	
+	<div id="header-table">
+		<h2>Bienvenido #{login.usr}</h2>
+	</div>	
+
+	<div class="container-table">
+
+		<div id="content">							
+			<h:form styleClass="form-container" >
+							
+				<h:commandButton value="Ver Clientes"
+						styleClass="add-button"
+						action="tablaClientes"/>
+						
+				<h:commandButton value="Añadir Administrador"
+						styleClass="add-button" 
+						action="registrarAdmin"/>
+						
+				<h:commandButton value="Añadir Rol"
+						styleClass="add-button" 
+						outcome=" "/>
+			</h:form>
+
+		</div>
+		
+	</div>
+
+</h:body>
+</html>
