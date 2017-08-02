@@ -9,37 +9,26 @@
 
 	<title>ADMINISTRADOR</title>
 	
-	<h:outputStylesheet library="css" name="style2.css"  />
+	<h:outputStylesheet library="css" name="style3.css"  />
 	
 </h:head>
-
-<h:body styleClass="centered">
-	
-	<div id="header-table">
-		<h2>Bienvenido #{login.usr}</h2>
-	</div>	
-
-	<div class="container-table">
-
+    
+<h:body styleClass="centered">	
+	<div>
 		<div id="content">							
 			<h:form styleClass="form-container" >
-							
-				<h:commandButton value="Ver Clientes"
-						styleClass="add-button"
-						action="tablaClientes"/>
-						
-				<h:commandButton value="Añadir Administrador"
-						styleClass="add-button" 
-						action="registrarAdmin"/>
-						
-				<h:commandButton value="Añadir Rol"
-						styleClass="add-button" 
-						outcome=" "/>
+				<div class="menu">
+  					<ul>
+	  					<h:link class="a" action="tablaClientes"><li>CLIENTES</li></h:link>
+	  					<h:link styleClass="a" action="pedidos"><li>PEDIDOS</li></h:link>	
+					    <h:link styleClass="a" action="inventario"><li>INVENTARIO</li></h:link>		    
+					    <h:link styleClass="a" action="proveedores"><li>PROVEEDORES</li></h:link>
+					    <h:link styleClass="a" action="añadirRol"><li>AÑADIR ROL</li></h:link>
+					    <h:link styleClass="a" action="registrarAdmin"><li>AÑADIR ADMINISTRADOR</li></h:link>		
+					</ul>
+				</div>
 			</h:form>
-
-		</div>
-		
+		</div>	
 	</div>
-
 </h:body>
 </html>
