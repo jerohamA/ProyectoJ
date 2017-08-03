@@ -13,12 +13,10 @@
 	
 </h:head>
 	<h:body styleClass="centered">						
-			<h:form styleClass="form-container">
-				<label>Nombre del rol: </label><h:inputText id="tipo"
-					styleClass="login-text"
-					value="#{rol.tipo}" />
+			<h:form class="menu">
+				<label>Nombre del rol: </label><h:inputText id="tipo" styleClass="text,rolBox" value="#{rol.tipo}" />
 				<br/><br/>		
-				<h:commandButton value="Añadir" styleClass="add-student-button" action=" " />
+				<h:commandButton value="Añadir" styleClass="add-button" action="#{rolController.addRol(rol)}"/>
 		</h:form>
 	</h:body>
 </html>

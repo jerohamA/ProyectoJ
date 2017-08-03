@@ -6,43 +6,40 @@
     xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
   <title>Registrarse</title>
-  <h:outputStylesheet library="css" name="style2.css"  />
+  <h:outputStylesheet library="css" name="style3.css"  />
+  	
 </h:head>
 
-<h:body class="centered">
-	
-	<br/><br/>
-	<div class="container">
-	
-		<H2>Registrate</H2>
-		<h:form styleClass="form-container">
+<h:body class="centered">	
+		<div class="header">
+			<H2>Registrate</H2>
+		</div>		
+		<h:form styleClass="menu">
 				<label>Nombre: </label><h:inputText id="nombre"
-					styleClass="login-text"
+					styleClass="text"
 					value="#{usuario.firstName}" />
 				<br/><br/>
 				<label>Apellido: </label><h:inputText id="apellido"
-					styleClass="login-text"
+					styleClass="text"
 					value="#{usuario.lastName}" />
 				<br/><br/>	
 				<label>UserName: </label><h:inputText id="username"
-					styleClass="login-text"
+					styleClass="text"
 					value="#{usuario.username}" />
 				<br/><br/>
 				<label>Password: </label><h:inputSecret id="password"
-					styleClass="login-text"
+					styleClass="text"
 					value="#{usuario.password}" />
 				<br/><br/>
 				
 				<label>Tipo: </label><h:selectOneRadio value = "#{usuario.tipo}"
-					styleClass="login-text" >
+					styleClass="text" >
 					<f:selectItem itemValue = "administrador" itemLabel ="administrador" />					
 				</h:selectOneRadio>	
 				<br/><br/>
-				
 						
-				<h:commandButton value="Registrarse" styleClass="add-student-button" action="#{torneoController.addUsuario(usuario)}" />
+				<h:commandButton value="Registrarse" styleClass="add-button" action="#{usuariosController.addUsuario(usuario)}" />
 		</h:form>
-	</div>
 </h:body>
 
 </html>

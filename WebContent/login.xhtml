@@ -6,21 +6,19 @@
     xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
   <title>LOGIN</title>  
-  <h:outputStylesheet library="css" name="style2.css" />  
+  <h:outputStylesheet library="css" name="style3.css" />  
 </h:head>
 <h:body class="centered">
-	<div class="container">
-		
-		<h2>Iniciar Sesión</h2>
-		
-		<h:form styleClass="form-container">
-			<label>Username: </label><h:inputText  styleClass="login-text" value="#{loginController.usr}"/>
+	<div>
+		<h:form styleClass="menuLogin">
+			<h2>Iniciar Sesión</h2>
+			<label>Username: </label><h:inputText  styleClass="text" value="#{loginController.usr}"/>
 			<br/><br/>
-			<label>Password: </label><h:inputSecret styleClass="login-text" value="#{loginController.pwd}"/>
+			<label>Password: </label><h:inputSecret styleClass="text" value="#{loginController.pwd}"/>
 			<br/><br/>			
-			<h:commandButton value="Login" styleClass="add-student-button" action="#{loginController.autenticar()}"/>
+			<h:commandButton value="Login" styleClass="add-button" action="#{loginController.autenticar()}"/>
 			<br></br>
-			<h:button value="Registrarse" styleClass="add-student-button" outcome="registrarse"/>
+			<h:button value="Registrarse" styleClass="add-button" outcome="registrarse"/>
 			
 		</h:form>
 	</div>

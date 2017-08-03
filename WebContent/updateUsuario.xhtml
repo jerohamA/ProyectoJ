@@ -9,44 +9,39 @@
 
 	<title>Modificar Usuario</title>
 	
-	<h:outputStylesheet library="css" name="style2.css"  />
+	<h:outputStylesheet library="css" name="style3.css"  />
 	
 	
 </h:head>
 
 <h:body class="centered">
 
-	<div class="container">
-	
-		
-		<h2>Competicion</h2>
-	
-		<h3>Modificar Usuarios</h3>
-
+	<div class="header">
+		<h2>Modificar Usuarios</h2>
+	</div>
 		<h:messages globalOnly="true" />
 
-		<h:form class="form-container">
+		<h:form class="menu">
 			
 			
-			<h:outputLabel>Nombres:</h:outputLabel> <h:inputText value="#{usuario.firstName}" id="firstName" styleClass="login-text" /> <h:message for="firstName" />
+			<h:outputLabel>Nombres:</h:outputLabel> <h:inputText value="#{usuario.firstName}" id="firstName" styleClass="text" /> <h:message for="firstName" />
 			<br/><br/>
-			<h:outputLabel>Apellidos:</h:outputLabel> <h:inputText value="#{usuario.lastName}" id="lastName" styleClass="login-text"  /> <h:message for="lastName" />
+			<h:outputLabel>Apellidos:</h:outputLabel> <h:inputText value="#{usuario.lastName}" id="lastName" styleClass="text"  /> <h:message for="lastName" />
 			<br/><br/>
-			<h:outputLabel>User Name:</h:outputLabel> <h:inputText value="#{usuario.username}" id="username" 
-								required="true"	requiredMessage="El user name es obligatorio." styleClass="login-text" /> 	<h:message for="username" />
+			<h:outputLabel>Username:</h:outputLabel> <h:inputText value="#{usuario.username}" id="username" 
+								required="true"	requiredMessage="El user name es obligatorio." styleClass="text" /> 	<h:message for="username" />
 	        <br/><br/>						
 			<h:outputLabel>Password:</h:outputLabel> <h:inputText value="#{usuario.password}" id="password" 
-								required="true"	requiredMessage="La contrasena es obligatorio." styleClass="login-text" /> 	<h:message for="password" />
+								required="true"	requiredMessage="La contrasena es obligatorio." styleClass="text" /> 	<h:message for="password" />
 	         <br/><br/>					
 			 <h:inputHidden value="#{usuario.id}"/>
 			 <h:inputHidden value="#{usuario.tipo}"/>
-			 <h:commandButton value="Aceptar" styleClass="add-student-button" action="#{torneoController.updateUsuario(usuario)}"/>
+			 <h:commandButton value="Aceptar" styleClass="add-button" action="#{torneoController.updateUsuario(usuario)}"/>
 			<br/><br/>
-			
+			<h:link styleClass="a" outcome="administrador"><li>REGRESAR</li></h:link>
 		</h:form>
 		
-		<p><h:outputLink value="administrador.xhtml">Regresar al Listado</h:outputLink></p>
+		
 
-	</div>	
 </h:body>
 </html>

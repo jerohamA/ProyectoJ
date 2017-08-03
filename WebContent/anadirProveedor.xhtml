@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:a="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+  <title>Añadir proveedor</title>
+  <h:outputStylesheet library="css" name="style3.css"  />
+</h:head>
+
+<h:body class="centered">
+	
+	<div>
+		<h:form styleClass="menu">
+				<label>Nombre: </label><h:inputText id="nombre"
+					styleClass="login-text"
+					value="#{proveedor.nombre}" />
+				<br/><br/>
+				<label>Direccion: </label><h:inputText id="apellido"
+					styleClass="login-text"
+					value="#{provedor.direccion}" />
+				<br/><br/>	
+				<label>Telefono: </label><h:inputText id="username"
+					styleClass="login-text"
+					value="#{proveedor.telefono}" />
+				<br/><br/>
+				<label>Mail: </label><h:inputSecret id="password"
+					styleClass="login-text"
+					value="#{proveedor.mail}" />
+				<br/><br/>	
+						
+				<h:commandButton value="Añadir" styleClass="add-student-button" action="#{proveedorController.addProveedor(proveedor)}" />
+		</h:form>
+	</div>
+</h:body>
+
+</html>
