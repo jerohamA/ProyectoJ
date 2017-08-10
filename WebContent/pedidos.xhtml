@@ -2,23 +2,51 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<f:metadata>
+  <f:event type="preRenderView" listener="#{ordenesController.loadOrdenes()}"/>
+</f:metadata>
 	
 <h:head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-	<title>PEDIDOS</title>
+	<title>PEDIDO</title>
 	
 	<h:outputStylesheet library="css" name="style3.css"  />
-	
+	<div class="header">
+		<h2>PEDIDOS</h2>
+	</div>	
 </h:head>
     
 <h:body styleClass="centered">						
-		<h:form styleClass="b" >
-			<div class="table">
-  				
-  				
-			</div>
-		</h:form>	
-</h:body>
+		<div class="container-table">
+			<div id="content">
+				<h:messages globalOnly="true" />						
+				<h:form >
+							
+				<h:dataTable value="#{usuariosController.usuarios}" var="tempOrden"
+					styleClass="demo-table" 				
+					headerClass="demo-table-header"
+					rowClasses="demo-table-odd-row,demo-table-even-row"/>
+	
+					<h:column>
+						<!-- the column header -->
+						<f:facet name="header">Pedidos</f:facet>
+							<!--  the value for each row -->
+							Nombre del cafe: 	#{tempOrden.producto.nombre}
+							<br> </br>
+							Tipo del cafe:		#{tempOrden.producto.tipo}
+							<br> </br>
+						    Cantidad:			#{tempOrden.cantidad}
+						    <br> </br>
+							Precio:				#{tempOrden.producto.precio}
+							<br> </br>				
+					</h:column>
+						<br> </br>
+						Total: 
+				</h:form>
+			</div>	
+		</div>	
+	</h:body>
 </html>

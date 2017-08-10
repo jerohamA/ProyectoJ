@@ -49,7 +49,7 @@ public class UsuarioDB {
 		try {
 			myConn = getConnection();
 
-			String sql = "select * from usuarios where tipo='competidor' order by id";
+			String sql = "select * from usuarios where tipo=2 order by id";
 
 			myStmt = myConn.createStatement();
 

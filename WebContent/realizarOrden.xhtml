@@ -1,81 +1,91 @@
 <!DOCTYPE html>
-<html lang="en"
-	xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:a="http://java.sun.com/jsf/facelets"
-    xmlns:f="http://java.sun.com/jsf/core">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<f:metadata>
+  <f:event type="preRenderView" listener="#{productosController.loadProducto()}"/>
+</f:metadata>
+
 <h:head>
-  <title>ORDENAR</title>
-  <h:outputStylesheet library="css" name="style3.css"  />
-</h:head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<h:body class="centered">	
-	<div class="page">
-		<div id="store_cart">
-			<ul class="cart_head">
-				<li class="cart_head_title">
-					Pedido
-				</li>
-				<li class="cart_head_product">
-					Producto
-				</li>
-				<li class="cart_head_options">
-					Editar
-				</li>
-				<li class="cart_head_price">
-					Precio
-				</li>
-			</ul>
+	<title>Realizar Orden</title>
 	
-			<ul class="cart_item">
+	<h:outputStylesheet library="css" name="style3.css"  />
+	<div class="header">
+		<h2>Cafés</h2>
+	</div>	
+</h:head>	
+<h:body styleClass="centered">	
+
+	<div class="container-table">
+
+		<div id="content">
+		
+			<h:messages globalOnly="true" />						
+
+			<h:form >
+						
+			<h:dataTable value="#{productosController.productos}" var="tempProducto"
+				styleClass="demo-table" 				
+				headerClass="demo-table-header"
+				rowClasses="demo-table-odd-row,demo-table-even-row">
+
+				<h:column>
+					<!-- the column header -->
+					<f:facet name="header">Nombre</f:facet>
+
+					<!--  the value for each row -->
+					#{tempProducto.nombre}
+				</h:column>
+
+				<h:column>
+					<!-- the column header -->
+					<f:facet name="header">Tipo</f:facet>
+
+					<!--  the value for each row -->
+					#{tempProducto.tipo}
+				</h:column>
+
+				<h:column>
+					<!-- the column header -->
+					<f:facet name="header">Cantidad</f:facet>
+
+					<!--  the value for each row -->
+					<h:selectOneMenu value="#{orden.cantidad}">
+					   	<f:selectItem itemValue="1" itemLabel="1" />
+					   	<f:selectItem itemValue="2" itemLabel="2" />
+					   	<f:selectItem itemValue="3" itemLabel="3" />
+					   	<f:selectItem itemValue="4" itemLabel="4" />
+					   	<f:selectItem itemValue="5" itemLabel="5" />
+					</h:selectOneMenu>
+				</h:column>
+				
+				<h:column>
+					<!-- the column header -->
+					<f:facet name="header">Precio</f:facet>
+
+					<!--  the value for each row -->
+					$ #{tempProducto.precio}
+				</h:column>
+				
+				<h:column>
+					<!-- the column header -->
+					<f:facet name="header">Eleccion</f:facet>
+
+					<!--  the value for each row -->
+					
+					<h:selectBooleanCheckbox value=" " />
+					
+				</h:column>
 	
-				<li class="cart_img_col">
-					<img src=" ">
-				</li>
-	
-				<li class="cart_product_col">
-					<p>Off-Road </p>
-					<span><strong>Size: </strong>XL</span>
-				</li>
-				 
-	      		<li class="cart_options_col">
-					<span>Quantity: </span>
-	        <input type="number" min="1" value="1">
-				</li>
-	
-				<li class="cart_price_col">
-					<h2>$399</h2>
-				</li>
-				<li class="cart_del_col">
-	        <img src=" ">
-				</li>
-			</ul>
-	
-			<ul class="cart_item">
-	
-				<li class="cart_img_col">
-					<img src=" "/>
-				</li>
-	
-				<li class="cart_product_col">
-					<p>SX Max Pro Lite</p>
-					<span><strong>Size: </strong>Medium</span>
-				</li>
-				 
-	      		<li class="cart_options_col">
-					<span>Quantity: </span>
-					<input type="number" min="1" value="1"/>
-				</li>
-	
-				<li class="cart_price_col">
-					<h2>$399</h2>
-				</li>
-				<li class="cart_del_col">
-	        	<img src=" "/>
-				</li>
-			</ul>
+				<h:commandButton value="Ordenar" onclick="if (!confirm('Seguro?')) return false" 
+								styleClass="add-button" action=" "/>
+				</h:dataTable>			
+			</h:form>
+		</div>
 	</div>
-</div>
 </h:body>
-
 </html>

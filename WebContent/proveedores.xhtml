@@ -4,14 +4,14 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <f:metadata>
-  <f:event type="preRenderView" listener="#{usuariosController.loadUsuarios()}"/>
+  <f:event type="preRenderView" listener="#{proveedoresController.loadProveedores()}"/>
 </f:metadata>
 
 <h:head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-	<title>Lista Usuarios</title>
+	<title>Lista Proveedores</title>
 	
 	<h:outputStylesheet library="css" name="style3.css"  />
 	<div class="header">
@@ -21,83 +21,69 @@
 <h:body styleClass="centered">	
 
 	<div class="container-table">
-
 		<div id="content">
-		
 			<h:messages globalOnly="true" />						
-
-			<h:form >
+				<h:form >
+							
+				<h:dataTable value="#{proveedoresController.proveedor}" var="tempProveedor"
+					styleClass="demo-table" 				
+					headerClass="demo-table-header"
+					rowClasses="demo-table-odd-row,demo-table-even-row">
+	
+					<h:column>
+						<!-- the column header -->
+						<f:facet name="header">Nombre</f:facet>
+	
+						<!--  the value for each row -->
+						#{tempProveedor.nombre}
+					</h:column>
+	
+					<h:column>
+						<!-- the column header -->
+						<f:facet name="header">Direccion</f:facet>
+	
+						<!--  the value for each row -->
+						#{tempProveedor.direccion}
+					</h:column>
+	
+					<h:column>
+						<!-- the column header -->
+						<f:facet name="header">Telefono</f:facet>
+	
+						<!--  the value for each row -->
+						#{tempProveedor.telefono}
+					</h:column>
+					
+					<h:column>
+						<!-- the column header -->
+						<f:facet name="header">Mail</f:facet>
+	
+						<!--  the value for each row -->
+						#{tempProveedor.mail}
+					</h:column>
+					
+					<h:column>
+						<!-- the column header -->
+						<f:facet name="header">Acción</f:facet>
+	
+						<!--  the value for each row -->
+						<h:commandButton value="Modificar" 
+						styleClass="table-button" 
+						action="#{usuariosController.loadUsuario(tempUser.id)}"/>
 						
-			<h:dataTable value="#{usuariosController.usuarios}" var="tempUser"
-				styleClass="demo-table" 				
-				headerClass="demo-table-header"
-				rowClasses="demo-table-odd-row,demo-table-even-row">
-
-				<h:column>
-					<!-- the column header -->
-					<f:facet name="header">Nombres</f:facet>
-
-					<!--  the value for each row -->
-					#{tempUser.firstName}
-				</h:column>
-
-				<h:column>
-					<!-- the column header -->
-					<f:facet name="header">Apellidos</f:facet>
-
-					<!--  the value for each row -->
-					#{tempUser.lastName}
-				</h:column>
-
-				<h:column>
-					<!-- the column header -->
-					<f:facet name="header">Tipo</f:facet>
-
-					<!--  the value for each row -->
-					#{tempUser.tipo}
-				</h:column>
-				
-				<h:column>
-					<!-- the column header -->
-					<f:facet name="header">User Name</f:facet>
-
-					<!--  the value for each row -->
-					#{tempUser.username}
-				</h:column>
-				
-				<h:column>
-					<!-- the column header -->
-					<f:facet name="header">Password</f:facet>
-
-					<!--  the value for each row -->
-					#{tempUser.password}
-				</h:column>
-
-				<h:column>
-					<!-- the column header -->
-					<f:facet name="header">Acción</f:facet>
-
-					<!--  the value for each row -->
-					<h:commandButton value="Modificar" 
-					styleClass="table-button" 
-					action="#{usuariosController.loadUsuario(tempUser.id)}"/>
+	
+						<h:commandButton value="Borrar"
+							onclick="if (!confirm('Seguro?')) return false"
+							styleClass="table-button"
+							action="#{usuariosController.deleteUser(tempUser.id)}"/>
+						
+					</h:column>
+	
+				</h:dataTable>
 					
-
-					<h:commandButton value="Borrar"
-						onclick="if (!confirm('Seguro?')) return false"
-						styleClass="table-button"
-						action="#{usuariosController.deleteUser(tempUser.id)}"/>
-					
-				</h:column>
-
-			</h:dataTable>
-				
-				<h:commandButton value="Añadir Proveedor" styleClass="add-button" action="#{}" />
-			</h:form>
-
+					<h:commandButton value="Añadir Proveedor" styleClass="add-button" action=" " />
+				</h:form>
+			</div>	
 		</div>
-		
-	</div>
-
-</h:body>
+	</h:body>
 </html>

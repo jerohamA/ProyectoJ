@@ -12,7 +12,8 @@ body{
     width:100%;
     height:100%;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;    
+    -moz-osx-font-smoothing: grayscale; 
+    overflow: auto;   
 }
 
 .header{
@@ -20,9 +21,7 @@ body{
     height:60px; 
     line-height:60px;
     color:#cab577;
-    font-size: 25px;
-    padding-left: 75px;
-    
+    font-size: 25px;    
 }
 .hamburger{
   background:none;
@@ -55,7 +54,7 @@ body{
   z-index:10000000000000;
 }
 h2{
-    margin:0;    
+    margin-top: 0;    
     text-align:center;
     margin-bottom:5px;
     font_family: Century Gothic,CenturyGothic,AppleGothic,sans-serif
@@ -165,14 +164,27 @@ h2{
     padding: 5px 10px; 
     margin-bottom: 4px;
     background: #cccccc;
-    align-self: center;
+}
+.reg-button {
+	border: 1px solid #666; 
+    border-radius: 5px;     
+    font-size: 12px;
+    font-weight: bold;
+    width: 150px; 
+    padding: 5px 10px; 
+    margin-bottom: 4px;
+    background: #cccccc;
+    margin-left: 30%;
 }
 .text{
 	width: 40%;
 	padding: 7px 5px;
-    margin: 7px 0;
+    margin: 7px;
     box-sizing: border-box;
     padding-bottom: 5px;
+}
+.login-text{
+	float: right;
 }
 .menu{
     margin: 120px;
@@ -184,16 +196,16 @@ h2{
     text-align:center; 
     font-size:30px;
     position: fixed;
-      top: 50%;
-      left: 50%;
-      /* bring your own prefixes */
-      transform: translate(-55%, -70%);
-      display: inline-block;
-      color:#cab577; 
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-55%, -70%);
+    display: inline-block;
+    color:#cab577; 
     text-decoration:none;    
 }
 .menuLogin{
-	    margin: 80px;
+	margin: 80px;
     padding: 0px;
     z-index:1000000; 
     font-size:0.8em; 
@@ -202,13 +214,31 @@ h2{
     text-align:center; 
     font-size:30px;
     position: fixed;
-      top: 50%;
-      left: 50%;
-      /* bring your own prefixes */
-      transform: translate(-55%, -70%);
-      display: inline-block;
-      color:#cab577; 
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-55%, -70%);
+    display: inline-block;
+    color:#cab577; 
     text-decoration:none;
+}
+.menuRegistrar{
+    margin: 40px;
+    margin-left: 100px;
+    padding: 0px;  
+    width:400px;
+    height: 580px;
+    text-align:left; 
+    font-size:30px;
+    color:#cab577; 
+    text-decoration:none;    
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-70%, -50%);
+    display: inline-block;
+    
 }
 .menu ul {margin: 0px; padding: 0; list-style-type: none; list-style-image: none; text-decoration:none;}
 .menu li {display: block; padding:15px 0 15px 0;text-decoration:none;}

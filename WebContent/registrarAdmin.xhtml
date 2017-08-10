@@ -7,14 +7,13 @@
 <h:head>
   <title>Registrarse</title>
   <h:outputStylesheet library="css" name="style3.css"  />
-  	
+	
 </h:head>
 
 <h:body class="centered">	
-		<div class="header">
-			<H2>Registrate</H2>
-		</div>		
-		<h:form styleClass="menu">
+			
+		<h:form styleClass="menuRegistrar">
+				<H2>Registrate</H2>
 				<label>Nombre: </label><h:inputText id="nombre"
 					styleClass="text"
 					value="#{usuario.firstName}" />
@@ -33,12 +32,12 @@
 				<br/><br/>
 				
 				<label>Tipo: </label><h:selectOneRadio value = "#{usuario.tipo}"
-					styleClass="text" >
+					styleClass="login-text" >
 					<f:selectItem itemValue = "administrador" itemLabel ="administrador" />					
 				</h:selectOneRadio>	
 				<br/><br/>
 						
-				<h:commandButton value="Registrarse" styleClass="add-button" action="#{usuariosController.addUsuario(usuario)}" />
+				<h:commandButton value="Registrarse" styleClass="reg-button" action="#{usuariosController.addUsuario(usuario)}" />
 		</h:form>
 </h:body>
 
