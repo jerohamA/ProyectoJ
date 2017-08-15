@@ -52,7 +52,7 @@ public class Login {
 				if(resultSet.getString("tipo").equals("administrador"))
 					return "administrador";
 				else
-					return "competidor";				
+					return "consumidor";				
 			}else{
 				return "login_error";
 			}	
@@ -102,7 +102,7 @@ public class Login {
 					if(resultSet.getString("tipo").equals("administrador"))
 						return "administrador";
 					else
-						return "competidor";				
+						return "consumidor";				
 				}else{
 					return "login_error";
 				}	

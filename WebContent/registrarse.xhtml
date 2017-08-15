@@ -31,10 +31,10 @@
 				<br/><br/>
 				<label>Tipo: </label><h:selectOneRadio value = "#{usuario.tipo}"
 					styleClass="login-text" >
-					<f:selectItem itemValue = "1" itemLabel ="Cliente" />					
+					<f:selectItem itemValue = "2" itemLabel ="Cliente" />					
 				</h:selectOneRadio>	
 				<br/><br/>	
-				<h:commandButton value="Registrarse" styleClass="reg-button" action="#{torneoController.addUsuario(usuario)}" />
+				<h:commandButton value="Registrarse" styleClass="reg-button" action="#{usuariosController.addUsuario(usuario)}" />
 		</h:form>
 </h:body>
 

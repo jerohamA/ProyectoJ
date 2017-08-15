@@ -165,6 +165,19 @@ h2{
     margin-bottom: 4px;
     background: #cccccc;
 }
+.add-button2 {
+    border: 1px solid #666; 
+    border-radius: 5px;
+    background: #cccccc;     
+    font-size: 15px;
+    font-weight: bold;
+    width: 150px; 
+    padding: 7px 10px; 
+    margin-bottom: 4px;
+    margin-left: 45%;
+    margin-top: 15px;
+}
+
 .reg-button {
 	border: 1px solid #666; 
     border-radius: 5px;     

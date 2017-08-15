@@ -62,7 +62,7 @@ public class UsuarioDB {
 				int id = myRs.getInt("id");
 				String firstName = myRs.getString("first_name");
 				String lastName = myRs.getString("last_name");
-				String tipo = myRs.getString("tipo");
+				int tipo = myRs.getInt("tipo");
 				String username = myRs.getString("username");
 				String password = myRs.getString("password");
 
@@ -98,7 +98,7 @@ public class UsuarioDB {
 			myStmt.setString(2, comp.getLastName());
 			myStmt.setString(3, comp.getUsername());
 			myStmt.setString(4, comp.getPassword());
-			myStmt.setString(5, comp.getTipo());
+			myStmt.setInt(5, comp.getTipo());
 			
 			myStmt.execute();			
 		}
@@ -133,7 +133,7 @@ public class UsuarioDB {
 				int id = myRs.getInt("id");
 				String firstName = myRs.getString("first_name");
 				String lastName = myRs.getString("last_name");
-				String tipo = myRs.getString("tipo");
+				int tipo = myRs.getInt("tipo");
 				
 
 				user = new Usuario(id, firstName, lastName,tipo);
@@ -166,7 +166,7 @@ public class UsuarioDB {
 			// set params
 			myStmt.setString(1, usuario.getFirstName());
 			myStmt.setString(2, usuario.getLastName());
-			myStmt.setString(3, usuario.getTipo());
+			myStmt.setInt(3, usuario.getTipo());
 			myStmt.setString(4, usuario.getUsername());
 			myStmt.setString(5, usuario.getPassword());
 			myStmt.setInt(6, usuario.getId());

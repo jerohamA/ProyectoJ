@@ -4,7 +4,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <f:metadata>
-  <f:event type="preRenderView" listener="#{proveedoresController.loadProveedores()}"/>
+  <f:event type="preRenderView" listener="#{proveedoresController.loadProveedores(event)}" />
 </f:metadata>
 
 <h:head>
@@ -25,7 +25,7 @@
 			<h:messages globalOnly="true" />						
 				<h:form >
 							
-				<h:dataTable value="#{proveedoresController.proveedor}" var="tempProveedor"
+				<h:dataTable value="#{proveedoresController.proveedores}" var="tempProveedor"
 					styleClass="demo-table" 				
 					headerClass="demo-table-header"
 					rowClasses="demo-table-odd-row,demo-table-even-row">
@@ -69,19 +69,19 @@
 						<!--  the value for each row -->
 						<h:commandButton value="Modificar" 
 						styleClass="table-button" 
-						action="#{usuariosController.loadUsuario(tempUser.id)}"/>
+						action="#{proveedoresController.loadProveedor(tempProveedor.id_proveedor)}"/>
 						
 	
 						<h:commandButton value="Borrar"
 							onclick="if (!confirm('Seguro?')) return false"
 							styleClass="table-button"
-							action="#{usuariosController.deleteUser(tempUser.id)}"/>
+							action="#{proveedoresController.deleteProveedor(tempProveedor.id_proveedor)}"/>
 						
 					</h:column>
 	
 				</h:dataTable>
 					
-					<h:commandButton value="Añadir Proveedor" styleClass="add-button" action=" " />
+					<h:commandButton value="Añadir Proveedor" styleClass="add-button" action="anadirProveedor" />
 				</h:form>
 			</div>	
 		</div>

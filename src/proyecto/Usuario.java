@@ -10,13 +10,13 @@ public class Usuario {
 	private String password;
 	private String firstName;
 	private String lastName;
-	private String tipo;
+	private int tipo;
 	
 	public Usuario() {
 	}
 	
 	
-	public Usuario(int id, String username, String password, String firstName, String lastName, String tipo) {
+	public Usuario(int id, String username, String password, String firstName, String lastName, int tipo) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -27,7 +27,7 @@ public class Usuario {
 	}
 
 	
-	public Usuario(int id, String firstName, String lastName, String tipo) {
+	public Usuario(int id, String firstName, String lastName, int tipo) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -76,11 +76,11 @@ public class Usuario {
 		this.lastName = lastName;
 	}
 
-	public String getTipo() {
+	public int getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(String tipo) {
+	public void setTipo(int tipo) {
 		this.tipo = tipo;
 	}
 

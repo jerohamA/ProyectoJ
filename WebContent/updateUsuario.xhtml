@@ -15,14 +15,10 @@
 </h:head>
 
 <h:body class="centered">
-
-	<div class="header">
-		<h2>Modificar Usuarios</h2>
-	</div>
 		<h:messages globalOnly="true" />
 
 		<h:form class="menu">
-			
+			<h2>Modificar Usuarios</h2>
 			
 			<h:outputLabel>Nombres:</h:outputLabel> <h:inputText value="#{usuario.firstName}" id="firstName" styleClass="text" /> <h:message for="firstName" />
 			<br/><br/>
@@ -36,7 +32,7 @@
 	         <br/><br/>					
 			 <h:inputHidden value="#{usuario.id}"/>
 			 <h:inputHidden value="#{usuario.tipo}"/>
-			 <h:commandButton value="Aceptar" styleClass="add-button" action="#{torneoController.updateUsuario(usuario)}"/>
+			 <h:commandButton value="Aceptar" styleClass="add-button" action="#{usuariosController.updateUsuario(usuario)}"/>
 			<br/><br/>
 			<h:link styleClass="a" outcome="administrador"><li>REGRESAR</li></h:link>
 		</h:form>

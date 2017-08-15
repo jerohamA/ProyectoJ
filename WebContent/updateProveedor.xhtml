@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<title>Modificar Proveedor</title>
+	
+	<h:outputStylesheet library="css" name="style3.css"  />
+	
+	
+</h:head>
+
+<h:body class="centered">
+
+		<h:messages globalOnly="true" />
+
+		<h:form class="menu">
+			
+			<h2>Modificar Proveedor</h2>
+			<h:outputLabel>Nombres:</h:outputLabel> <h:inputText value="#{proveedor.nombre}" id="nombre" styleClass="text" /> <h:message for="nombre" />
+			<br/><br/>
+			<h:outputLabel>Direccion:</h:outputLabel> <h:inputText value="#{proveedor.direccion}" id="direccion" styleClass="text"  /> <h:message for="direccion" />
+			<br/><br/>
+			<h:outputLabel>Telefono:</h:outputLabel> <h:inputText value="#{proveedor.telefono}" id="telefono" styleClass="text" /> 	<h:message for="telefono" />
+	        <br/><br/>						
+			<h:outputLabel>Mail:</h:outputLabel> <h:inputText value="#{proveedor.mail}" id="mail" styleClass="text" /> 	<h:message for="mail" />
+			 <h:commandButton value="Aceptar" styleClass="add-button" action="#{proveedoresController.updateProveedor(proveedor)}"/>
+			<br/><br/>
+			<h:link styleClass="a" outcome="administrador"><li>REGRESAR</li></h:link>
+		</h:form>
+		
+		
+
+</h:body>
+</html>

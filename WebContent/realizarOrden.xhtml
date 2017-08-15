@@ -4,7 +4,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <f:metadata>
-  <f:event type="preRenderView" listener="#{productosController.loadProducto()}"/>
+  <f:event type="preRenderView" listener="#{productosController.loadProductos()}"/>
 </f:metadata>
 
 <h:head>
@@ -33,57 +33,59 @@
 				headerClass="demo-table-header"
 				rowClasses="demo-table-odd-row,demo-table-even-row">
 
-				<h:column>
-					<!-- the column header -->
-					<f:facet name="header">Nombre</f:facet>
-
-					<!--  the value for each row -->
-					#{tempProducto.nombre}
-				</h:column>
-
-				<h:column>
-					<!-- the column header -->
-					<f:facet name="header">Tipo</f:facet>
-
-					<!--  the value for each row -->
-					#{tempProducto.tipo}
-				</h:column>
-
-				<h:column>
-					<!-- the column header -->
-					<f:facet name="header">Cantidad</f:facet>
-
-					<!--  the value for each row -->
-					<h:selectOneMenu value="#{orden.cantidad}">
-					   	<f:selectItem itemValue="1" itemLabel="1" />
-					   	<f:selectItem itemValue="2" itemLabel="2" />
-					   	<f:selectItem itemValue="3" itemLabel="3" />
-					   	<f:selectItem itemValue="4" itemLabel="4" />
-					   	<f:selectItem itemValue="5" itemLabel="5" />
-					</h:selectOneMenu>
-				</h:column>
-				
-				<h:column>
-					<!-- the column header -->
-					<f:facet name="header">Precio</f:facet>
-
-					<!--  the value for each row -->
-					$ #{tempProducto.precio}
-				</h:column>
-				
-				<h:column>
-					<!-- the column header -->
-					<f:facet name="header">Eleccion</f:facet>
-
-					<!--  the value for each row -->
-					
-					<h:selectBooleanCheckbox value=" " />
-					
-				</h:column>
+					<h:column>
+						<!-- the column header -->
+						<f:facet name="header">Nombre</f:facet>
 	
-				<h:commandButton value="Ordenar" onclick="if (!confirm('Seguro?')) return false" 
-								styleClass="add-button" action=" "/>
-				</h:dataTable>			
+						<!--  the value for each row -->
+						#{tempProducto.nombre}
+					</h:column>
+	
+					<h:column>
+						<!-- the column header -->
+						<f:facet name="header">Tipo</f:facet>
+	
+						<!--  the value for each row -->
+						#{tempProducto.tipo}
+					</h:column>
+	
+					<h:column>
+						<!-- the column header -->
+						<f:facet name="header">Cantidad</f:facet>
+	
+						<!--  the value for each row -->
+						<h:selectOneMenu value="#{orden.cantidad}">
+						   	<f:selectItem itemValue="1" itemLabel="1" />
+						   	<f:selectItem itemValue="2" itemLabel="2" />
+						   	<f:selectItem itemValue="3" itemLabel="3" />
+						   	<f:selectItem itemValue="4" itemLabel="4" />
+						   	<f:selectItem itemValue="5" itemLabel="5" />
+						</h:selectOneMenu>
+					</h:column>
+					
+					<h:column>
+						<!-- the column header -->
+						<f:facet name="header">Precio</f:facet>
+	
+						<!--  the value for each row -->
+						$ #{tempProducto.precio}
+					</h:column>
+					
+					<h:column>
+						<!-- the column header -->
+						<f:facet name="header">Eleccion</f:facet>
+	
+						<!--  the value for each row -->
+						
+						<h:selectBooleanCheckbox value=" " />
+						
+					</h:column>
+						
+			</h:dataTable>	
+				<div>
+					<h:button value="Ordenar" onclick="if (!confirm('Seguro?')) return false" 
+							styleClass="add-button2" id="button" action="#{ordenesController.generarOrden(orden)}"/>
+				</div>
 			</h:form>
 		</div>
 	</div>
