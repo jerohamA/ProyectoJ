@@ -28,7 +28,8 @@
 			<h:outputLabel>Telefono:</h:outputLabel> <h:inputText value="#{proveedor.telefono}" id="telefono" styleClass="text" /> 	<h:message for="telefono" />
 	        <br/><br/>						
 			<h:outputLabel>Mail:</h:outputLabel> <h:inputText value="#{proveedor.mail}" id="mail" styleClass="text" /> 	<h:message for="mail" />
-			 <h:commandButton value="Aceptar" styleClass="add-button" action="#{proveedoresController.updateProveedor(proveedor)}"/>
+			 <br/><br/>
+			 <h:commandButton value="Aceptar" styleClass="add-button" action="#{proveedoresController.updateProveedores(proveedor)}"/>
 			<br/><br/>
 			<h:link styleClass="a" outcome="administrador"><li>REGRESAR</li></h:link>
 		</h:form>

@@ -3,38 +3,21 @@ package proyecto;
 import java.sql.SQLException;
 import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
-
-
+import javax.faces.flow.FlowScoped;
 
 @ManagedBean
 @SessionScoped
 public class LoginController {
 	
-	private String usr;
-	private String pwd;
+		
 	private Logger logger = Logger.getLogger(getClass().getName());
-	private Login log;
 	
-	public String getUsr() {
-		return usr;
-	}
-
-	public void setUsr(String usr) {
-		this.usr = usr;
-	}
-
-	public String getPwd() {
-		return pwd;
-	}
-
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
-	}
+	@ManagedProperty(value="#{login}")	private Login log;	
 
 	public LoginController() {
 		super();
-		this.log = new Login();
 	}
 
 	public Login getLog() {
@@ -55,10 +38,8 @@ public class LoginController {
 
 	public String autenticar() throws SQLException{
 		
-		logger.info("autenticando usuario");
-		log.setUsr(usr);
-		log.setPwd(pwd);
-		String pag = log.verificar();			
+		logger.info("autenticando usuario");		
+		String pag = log.verificar();
 		return pag;		
 	}	
 }

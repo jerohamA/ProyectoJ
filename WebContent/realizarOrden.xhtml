@@ -15,30 +15,34 @@
 	
 	<h:outputStylesheet library="css" name="style3.css"  />
 	<div class="header">
-		<h2>Cafés</h2>
-	</div>	
-</h:head>	
-<h:body styleClass="centered">	
+		<h2>Menú</h2>
+	</div>
+</h:head>
+
+<h:body styleClass="centered">
+	
+	<f:facet name="header">Cafes</f:facet>
 
 	<div class="container-table">
 
 		<div id="content">
-		
+			
 			<h:messages globalOnly="true" />						
 
 			<h:form >
 						
-			<h:dataTable value="#{productosController.productos}" var="tempProducto"
-				styleClass="demo-table" 				
-				headerClass="demo-table-header"
-				rowClasses="demo-table-odd-row,demo-table-even-row">
-
+				<h:dataTable value="#{productosController.productos}" var="tempProducto"
+					styleClass="demo-table" 				
+					headerClass="demo-table-header"
+					binding="#{ordenesController.datatable}"
+					rowClasses="demo-table-odd-row,demo-table-even-row">
+	
 					<h:column>
 						<!-- the column header -->
 						<f:facet name="header">Nombre</f:facet>
 	
 						<!--  the value for each row -->
-						#{tempProducto.nombre}
+						  #{tempProducto.nombre}
 					</h:column>
 	
 					<h:column>
@@ -49,12 +53,14 @@
 						#{tempProducto.tipo}
 					</h:column>
 	
+					
 					<h:column>
 						<!-- the column header -->
 						<f:facet name="header">Cantidad</f:facet>
 	
-						<!--  the value for each row -->
-						<h:selectOneMenu value="#{orden.cantidad}">
+						<!--  the value for each row-->
+						<h:selectOneMenu value="#{tempProducto.cantidadOrden}">
+							<f:selectItem itemLabel=" " /> 
 						   	<f:selectItem itemValue="1" itemLabel="1" />
 						   	<f:selectItem itemValue="2" itemLabel="2" />
 						   	<f:selectItem itemValue="3" itemLabel="3" />
@@ -73,21 +79,19 @@
 					
 					<h:column>
 						<!-- the column header -->
-						<f:facet name="header">Eleccion</f:facet>
+						<f:facet name="header">Ordenar</f:facet>
 	
 						<!--  the value for each row -->
-						
-						<h:selectBooleanCheckbox value=" " />
-						
-					</h:column>
-						
-			</h:dataTable>	
-				<div>
-					<h:button value="Ordenar" onclick="if (!confirm('Seguro?')) return false" 
-							styleClass="add-button2" id="button" action="#{ordenesController.generarOrden(orden)}"/>
-				</div>
+						<h:commandButton value="Ordenar" onclick="if (!confirm('Seguro?')) return false" 
+							styleClass="add-student-button" action="#{ordenesController.generarOrden()}"/>  
+	                 </h:column>
+	                 
+				</h:dataTable>
 			</h:form>
+
 		</div>
+		
 	</div>
+
 </h:body>
 </html>

@@ -1,8 +1,10 @@
 package proyecto;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean
+@SessionScoped
 public class Producto {
 	
 	private int id_producto;
@@ -10,7 +12,8 @@ public class Producto {
 	private String tipo;
 	private float precio;
 	private Proveedor id_proveedor;
-		
+	private int cantidadOrden;	
+	
 	public Producto() {
 		super();
 	}
@@ -24,6 +27,14 @@ public class Producto {
 		this.id_proveedor = proveedor;
 	}
 	
+	public int getCantidadOrden() {
+		return cantidadOrden;
+	}
+
+	public void setCantidadOrden(int cantidadOrden) {
+		this.cantidadOrden = cantidadOrden;
+	}
+
 	public int getId_producto() {
 		return id_producto;
 	}

@@ -1,4 +1,4 @@
-                      package proyecto;
+package proyecto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,6 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.component.html.HtmlDataTable;
+import javax.faces.context.FacesContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -35,7 +37,25 @@ public class OrdenDB {
 		this.dataSource = getDataSource();
 	}
 
+	public void generarOrden(HtmlDataTable datatable) throws Exception {		
+			
+			FacesContext context = FacesContext.getCurrentInstance();
+			Producto data = (Producto) datatable.getRowData();	
+			Orden orden = context.getApplication().evaluateExpressionGet(context, "#{orden}", Orden.class);		
+			Login log = context.getApplication().evaluateExpressionGet(context, "#{login}", Login.class);
+			
+			
+			orden.setTotal(this.calcularTotal(data));
+			orden.setCantidad(data.getCantidadOrden());
+			orden.setProducto(data);
+			orden.setUsuario(log.getUs().getId());
+			
+			this.addOrden(orden);		
+	}
 
+	private float calcularTotal(Producto pr) {
+		return pr.getPrecio()*pr.getCantidadOrden();
+	}
 
 	public void addOrden(Orden orden) throws Exception {
 	
@@ -45,18 +65,18 @@ public class OrdenDB {
 		try {
 			myConn = getConnection();
 	
-			String sql = "insert into ordenes (fecha,producto,cliente,cantidad) values (NOW(), ?, ?,?)";
-	
+			String sql = "insert into ordenes (fecha,id_producto,id_usuario,cantidad,total) values (NOW(),?,?,?,?)";
 			myStmt = myConn.prepareStatement(sql);
 	
 			// set params
 			
-			myStmt.setInt(2, orden.getProducto().getId_producto());
-			myStmt.setInt(3, orden.getCliente().getId());
-			myStmt.setInt(3, orden.getCantidad());
-			
-			
+			myStmt.setInt(1, orden.getProducto().getId_producto());
+			myStmt.setInt(2, orden.getUsuario());
+			myStmt.setInt(3, orden.getCantidad());	
+			myStmt.setFloat(4, orden.getTotal());	
 			myStmt.execute();			
+			
+			
 		}
 		finally {
 			close (myConn, myStmt);
@@ -67,19 +87,28 @@ public class OrdenDB {
 	public List<Orden> getOrdenes() throws Exception {
 		
 		List<Orden> ordenes = new ArrayList<>();
-	
+		Login log = FacesContext.getCurrentInstance().getApplication().evaluateExpressionGet(FacesContext.getCurrentInstance(), "#{login}", Login.class);
+		
 		Connection myConn = null;
 		Statement myStmt = null;
+		PreparedStatement myPstmt = null;
 		ResultSet myRs = null;
-		
+		String sql;
 		try {
 			myConn = getConnection();
-	
-			String sql = "select * from ordenes order by id_orden";
-	
-			myStmt = myConn.createStatement();
-	
-			myRs = myStmt.executeQuery(sql);
+			if(log.getUs().getTipo()==1){
+				sql = "select * from ordenes order by id_orden";
+				myStmt = myConn.createStatement();			
+				myRs = myStmt.executeQuery(sql);
+			}
+			else{
+				sql = "select * from ordenes where id_usuario=? order by fecha";
+				myPstmt=  myConn.prepareStatement(sql);
+				myPstmt.setInt(1, log.getUs().getId()); 
+				myRs = myPstmt.executeQuery();
+			}
+			
+			
 	
 			// process result set
 			while (myRs.next()) {
@@ -90,11 +119,10 @@ public class OrdenDB {
 				int id_producto = myRs.getInt("id_producto");
 				int id_usuario = myRs.getInt("id_usuario");
 				int cantidad = myRs.getInt("cantidad");
-				
-				Producto tempProducto = ProductoDB.getInstance().getProducto(id_producto);	
-				Usuario tempUsuario = UsuarioDB.getInstance().getUsuario(id_usuario);
+				float total = myRs.getFloat("total");
+				Producto pr = ProductoDB.getInstance().getProducto(id_producto);
 				// create new user object
-				Orden tempOrden = new Orden(id,fecha,tempProducto,tempUsuario,cantidad);
+				Orden tempOrden = new Orden(id,fecha,pr,id_usuario,cantidad,total);
 				// add it to the list of users
 				ordenes.add(tempOrden);
 			}

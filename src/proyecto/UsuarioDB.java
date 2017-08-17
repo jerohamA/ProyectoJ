@@ -49,7 +49,7 @@ public class UsuarioDB {
 		try {
 			myConn = getConnection();
 
-			String sql = "select * from usuarios where tipo=2 order by id";
+			String sql = "select * from usuarios where tipo = 2 order by id";
 
 			myStmt = myConn.createStatement();
 
@@ -81,7 +81,7 @@ public class UsuarioDB {
 		}
 	}
 
-	public void addUsuario(Usuario comp) throws Exception {
+	public void addUsuario(Usuario us) throws Exception {
 
 		Connection myConn = null;
 		PreparedStatement myStmt = null;
@@ -94,11 +94,11 @@ public class UsuarioDB {
 			myStmt = myConn.prepareStatement(sql);
 
 			// set params
-			myStmt.setString(1, comp.getFirstName());
-			myStmt.setString(2, comp.getLastName());
-			myStmt.setString(3, comp.getUsername());
-			myStmt.setString(4, comp.getPassword());
-			myStmt.setInt(5, comp.getTipo());
+			myStmt.setString(1, us.getFirstName());
+			myStmt.setString(2, us.getLastName());
+			myStmt.setString(3, us.getUsername());
+			myStmt.setString(4, us.getPassword());
+			myStmt.setInt(5, us.getTipo());
 			
 			myStmt.execute();			
 		}
@@ -133,10 +133,12 @@ public class UsuarioDB {
 				int id = myRs.getInt("id");
 				String firstName = myRs.getString("first_name");
 				String lastName = myRs.getString("last_name");
+				String username = myRs.getString("username");
+				//String password = myRs.getString("password");
 				int tipo = myRs.getInt("tipo");
 				
 
-				user = new Usuario(id, firstName, lastName,tipo);
+				user = new Usuario(id,username,null,firstName, lastName,tipo);
 			}
 			else {
 				throw new Exception("Could not find usuario id: " + usuarioID);

@@ -1,4 +1,4 @@
-                        package proyecto;
+package proyecto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,14 +6,16 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class ProductosController {
 
 	private List<Producto> productos;
@@ -29,7 +31,8 @@ public class ProductosController {
 	public List<Producto> getProductos() {
 		return productos;
 	}
-
+	
+	@PostConstruct
 	public void loadProductos() {
 	
 		logger.info("Cargando productos");

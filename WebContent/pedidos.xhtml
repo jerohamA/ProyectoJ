@@ -6,47 +6,85 @@
 <f:metadata>
   <f:event type="preRenderView" listener="#{ordenesController.loadOrdenes()}"/>
 </f:metadata>
-	
+
 <h:head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-	<title>PEDIDO</title>
+	<title>Pedidos</title>
 	
 	<h:outputStylesheet library="css" name="style3.css"  />
 	<div class="header">
-		<h2>PEDIDOS</h2>
-	</div>	
+		<h2>Pedidos</h2>
+	</div>
 </h:head>
-    
-<h:body styleClass="centered">						
-		<div class="container-table">
-			<div id="content">
-				<h:messages globalOnly="true" />						
-				<h:form >
-							
-				<h:dataTable value="#{usuariosController.usuarios}" var="tempOrden"
+
+<h:body styleClass="centered">
+	
+	<f:facet name="header">Pedidos</f:facet>
+
+	<div class="container-table">
+
+		<div id="content">
+			
+			<h:messages globalOnly="true" />						
+
+			<h:form >
+						
+				<h:dataTable value="#{ordenesController.ordenes}" var="temporden"
 					styleClass="demo-table" 				
 					headerClass="demo-table-header"
-					rowClasses="demo-table-odd-row,demo-table-even-row"/>
+					binding="#{ordenesController.datatable}"
+					rowClasses="demo-table-odd-row,demo-table-even-row">
 	
 					<h:column>
 						<!-- the column header -->
-						<f:facet name="header">Pedidos</f:facet>
-							<!--  the value for each row -->
-							Nombre del cafe: 	#{tempOrden.producto.nombre}
-							<br> </br>
-							Tipo del cafe:		#{tempOrden.producto.tipo}
-							<br> </br>
-						    Cantidad:			#{tempOrden.cantidad}
-						    <br> </br>
-							Precio:				#{tempOrden.producto.precio}
-							<br> </br>				
+						<f:facet name="header">Nombre</f:facet>
+	
+						<!--  the value for each row -->
+						  #{temporden.producto.nombre}
 					</h:column>
-						<br> </br>
-						Total: 
-				</h:form>
-			</div>	
-		</div>	
-	</h:body>
+	
+					<h:column>
+						<!-- the column header -->
+						<f:facet name="header">Tipo</f:facet>
+	
+						<!--  the value for each row -->
+						#{temporden.producto.tipo}
+					</h:column>
+	
+					
+					<h:column>
+						<!-- the column header -->
+						<f:facet name="header">Cantidad</f:facet>
+	
+						<!--  the value for each row-->
+						#{temporden.cantidad}
+					</h:column>
+					
+					<h:column>
+						<!-- the column header -->
+						<f:facet name="header">Precio</f:facet>
+	
+						<!--  the value for each row -->
+						$ #{temporden.producto.precio}
+					</h:column>
+					
+					
+					<h:column>
+						<!-- the column header -->
+						<f:facet name="header">Total</f:facet>
+						
+						<!--  the value for each row -->
+						$ #{temporden.total}  
+	                 </h:column>
+	                 
+				</h:dataTable>
+			</h:form>
+
+		</div>
+		
+	</div>
+
+</h:body>
 </html>

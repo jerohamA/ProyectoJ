@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en"
 	xmlns="http://www.w3.org/1999/xhtml"
@@ -12,9 +13,9 @@
 	<div>
 		<h:form styleClass="menuLogin">
 			<h2>Iniciar Sesión</h2>
-			<label>Username: </label><h:inputText  styleClass="text" value="#{loginController.usr}"/>
+			<label>Username: </label><h:inputText  styleClass="text" value="#{usuario.username}"/>
 			<br/><br/>
-			<label>Password: </label><h:inputSecret styleClass="text" value="#{loginController.pwd}"/>
+			<label>Password: </label><h:inputSecret styleClass="text" value="#{usuario.password}"/>
 			<br/><br/>			
 			<h:commandButton value="Login" styleClass="add-button" action="#{loginController.autenticar()}"/>
 			<br></br>

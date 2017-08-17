@@ -19,18 +19,18 @@
 				<br/><br/>
 				<label>Direccion: </label><h:inputText id="apellido"
 					styleClass="login-text"
-					value="#{provedor.direccion}" />
+					value="#{proveedor.direccion}" />
 				<br/><br/>	
 				<label>Telefono: </label><h:inputText id="username"
 					styleClass="login-text"
 					value="#{proveedor.telefono}" />
 				<br/><br/>
-				<label>Mail: </label><h:inputSecret id="password"
+				<label>Mail: </label><h:inputText id="password"
 					styleClass="login-text"
 					value="#{proveedor.mail}" />
 				<br/><br/>	
 						
-				<h:commandButton value="Añadir" styleClass="add-student-button" action="#{proveedorController.addProveedor(proveedor)}" />
+				<h:commandButton value="Añadir" styleClass="add-student-button" action="#{proveedoresController.addProveedor(proveedor)}" />
 		</h:form>
 	</div>
 </h:body>

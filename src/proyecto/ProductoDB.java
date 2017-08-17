@@ -1,4 +1,4 @@
-                        package proyecto;
+package proyecto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

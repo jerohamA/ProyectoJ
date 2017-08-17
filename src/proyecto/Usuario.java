@@ -1,10 +1,12 @@
 package proyecto;
-
-
-
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
+
 @ManagedBean
+@SessionScoped
 public class Usuario {
+
 	private int id;
 	private String username;
 	private String password;
@@ -12,9 +14,19 @@ public class Usuario {
 	private String lastName;
 	private int tipo;
 	
+	
 	public Usuario() {
 	}
 	
+	public Usuario(String username, String password, String firstName, String lastName, int tipo) {
+		super();
+		
+		this.username = username;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.tipo = tipo;
+	}
 	
 	public Usuario(int id, String username, String password, String firstName, String lastName, int tipo) {
 		super();
@@ -27,15 +39,7 @@ public class Usuario {
 	}
 
 	
-	public Usuario(int id, String firstName, String lastName, int tipo) {
-		super();
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.tipo = tipo;
-	}
-
-
+	
 	public String getUsername() {
 		return username;
 	}
